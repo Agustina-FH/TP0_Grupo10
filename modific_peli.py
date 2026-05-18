@@ -36,8 +36,9 @@ def modificarPelicula(codigos, titulos, generos, directores, paises, años, clas
         paises[posicion]=pais
         año=int(input("Ingrese el nuevo año:"))
         while año<1900: 
-            print("El año debe estar entre 1888 y 2024")
+            print("El año debe ser mayor a 1900")
             año=int(input("Ingrese el nuevo año:"))
+        año[posicion]=año
         clasificacion=input("Ingrese la nueva clasificacion:")
         clasificacionesPermitidas=[ "ATP", "APTO13", "APTO16" , "APTO18" ]
         while clasificacion not in clasificacionesPermitidas:
