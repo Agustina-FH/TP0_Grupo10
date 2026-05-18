@@ -18,17 +18,18 @@ def opcion_seleccionada(primeraOP, ultimaOP):
 
 def main():
   codigos=[]
-  nombres=[]
-  genero=[]
-  director=[]
-  pais=[]
-  clasificacion=[]
+  titulos=[]
+  generos=[]
+  directores=[]
+  paises=[]
   años=[]
+  clasificaciones=[]
+
   opciones_menu()
   opcion=opcion_seleccionada(1,5)
   while opcion != 5:
     if opcion==1:
-        alta_pelicula(codigos, nombres, genero, director, pais, clasificacion, años)
+        alta_pelicula(codigos, titulos, generos, directores, paises, años, clasificaciones)
 """
   elif opcion==2:
     modificarPelicula(codigos,nombres,genero,director,pais,clasificacion,años)
