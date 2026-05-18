@@ -1,20 +1,5 @@
 from funciones import *
 
-def opciones_menu():
-    print("1: Alta de pelicula")
-    print("2: Modificacion de pelicula")
-    print("3: Baja de pelicula")
-    print("4: Listado general")
-    print("5: Salir")
-
-def opcion_seleccionada(primeraOP, ultimaOP):
-    op = int(input("Ingrese la accion que desea llevar acabo: "))
-
-    while op < primeraOP or op > ultimaOP:
-        print("Valor fuera de rango")
-        op = int(input("Ingrese la accion que desea llevar acabo: "))
-    
-    return op
 
 def main():
   codigos=[]
@@ -28,12 +13,18 @@ def main():
   opciones_menu()
   opcion=opcion_seleccionada(1,5)
   while opcion != 5:
-    if opcion==1:
-        alta_pelicula(codigos, titulos, generos, directores, paises, años, clasificaciones)
-    """
-    if opcion==3:
+    clasif_validas = ["ATP", "APTO13", "APTO16", "APTO18"]
+
+    if opcion == 1:
+      alta_pelicula(codigos, titulos, generos, directores, paises, años, clasificaciones, clasif_validas)
+
+    if opcion == 2:
+      modificar_pelicula(codigos, titulos, generos, directores, paises, años, clasificaciones, clasif_validas)
+
+    if opcion == 3:
+      baja_pelicula(codigos, titulos, generos, directores, paises, años, clasificaciones)
+
+    opciones_menu()
+    opcion=opcion_seleccionada(1,5)    
     
-    else:
-       clasif_validas = ["ATP", "APTO13", "APTO16", "APTO16"]
-    """
 main()
