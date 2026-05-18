@@ -123,7 +123,7 @@ def alta_pelicula(codigos, titulos, generos, directores, paises, años, clasific
 #OPCION 2
 def sub_menu_modf(datos_peli):
     for posicion in range(1,len(datos_peli)):
-        print(posicion+1,":",datos_peli[posicion])
+        print(posicion,":",datos_peli[posicion])
 
 
 def modificar_pelicula(codigos, titulos, generos, directores, paises, años, clasificaciones, clasif_validas):
@@ -140,42 +140,42 @@ def modificar_pelicula(codigos, titulos, generos, directores, paises, años, cla
         sub_menu_modf(pelicula)
         opcion = opcion_seleccionada(1,len(pelicula))
 
-        if opcion == 2:
+        if opcion == 1:
             titulo=input("Inese el nuevo titulo: ")
             while hay_numeros(titulo):
                 print("El titulo no puede contener numeros")
                 titulo=input("Inese el nuevo titulo: ")
             titulos[posicion]=titulo
 
-        if opcion == 3:
+        if opcion == 2:
             genero=input("Ingrese el nuevo genero:")
             while hay_numeros(genero):
                 print("El genero no puede contener numeros")
                 genero=input("Ingrese el nuevo genero:")
             generos[posicion]=genero
 
-        if opcion == 4:
+        if opcion == 3:
             director=input("Ingrese el nuevo director:")
             while hay_numeros(director):
                 print("El director no puede contener numeros")
                 director=input("Ingrese el nuevo director:")
             directores[posicion]=director
 
-        if opcion == 5:
+        if opcion == 4:
             pais=input("Ingrese el nuevo pais:")
             while hay_numeros(pais):
                 print("El pais no puede contener numeros")
                 pais=input("Ingrese el nuevo pais:")
             paises[posicion]=pais
 
-        if opcion == 6:
+        if opcion == 5:
             año=int(input("Ingrese el nuevo año:"))
             while año<1900: 
                 print("El año debe ser mayor a 1900")
                 año=int(input("Ingrese el nuevo año:"))
             años[posicion]=año
 
-        if opcion == 7:
+        if opcion == 6:
             clasificacion=input("Ingrese la nueva clasificacion:")
             while clasificacion not in clasif_validas:
                 print("La clasificacion no es valida")
@@ -223,13 +223,12 @@ def baja_pelicula(codigos, titulos, generos, directores, paises, años, clasific
             clasificaciones.pop(posicion)
             print("Eliminacion exitosa.")
 
-        else:
+        op = input("¿Desea volver al menu principal? (S/N): ").upper()
+        while opcion != "S" and opcion != "N":
+            print("Respuesta invalida")
             op = input("¿Desea volver al menu principal? (S/N): ").upper()
-            while opcion != "S" and opcion != "N":
-                print("Respuesta invalida")
-                op = input("¿Desea volver al menu principal? (S/N): ").upper()
-            if op == "S":
-                continuar = False
+        if op == "S":
+            continuar = False
 
     print("Volviendo al menu principal..")
     
