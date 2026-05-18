@@ -30,13 +30,10 @@ def main():
   while opcion != 5:
     if opcion==1:
         alta_pelicula(codigos, titulos, generos, directores, paises, años, clasificaciones)
-"""
-  elif opcion==2:
-    modificarPelicula(codigos,nombres,genero,director,pais,clasificacion,años)
-  elif opcion==3:
-    bajaPelicula(codigos,nombres,genero,director,pais,clasificacion,años)
-  elif opcion==4:
-    listadoGeneral(codigos,nombres,genero,director,pais,clasificacion,años)
-"""
-
+    """
+    if opcion==3:
+    
+    else:
+       clasif_validas = ["ATP", "APTO13", "APTO16", "APTO16"]
+    """
 main()
