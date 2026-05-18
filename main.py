@@ -1,12 +1,20 @@
-import funciones
+from funciones import *
 
-def mostrarInicio():
-  print("Bienvenido")
-  print("1. Alta de Pelicula")
-  print("2. Modificación de Pelicula")
-  print("3. Baja de Pelicula")
-  print("4. Listado General")
-  
+def opciones_menu():
+    print("1: Alta de pelicula")
+    print("2: Modificacion de pelicula")
+    print("3: Baja de pelicula")
+    print("4: Listado general")
+    print("5: Salir")
+
+def opcion_seleccionada(primeraOP, ultimaOP):
+    op = int(input("Ingrese la accion que desea llevar acabo: "))
+
+    while op < primeraOP or op > ultimaOP:
+        print("Valor fuera de rango")
+        op = int(input("Ingrese la accion que desea llevar acabo: "))
+    
+    return op
 
 def main():
   codigos=[]
@@ -16,15 +24,18 @@ def main():
   pais=[]
   clasificacion=[]
   años=[]
-  mostrarInicio():
-  opcion=int(input("Ingrese una opcion:"))
-  if opcion==1:
-    funciones.altaPelicula(codigos, nombres, genero, director, pais, clasificacion, años)
+  opciones_menu()
+  opcion=opcion_seleccionada(1,5)
+  while opcion != 5:
+    if opcion==1:
+        alta_pelicula(codigos, nombres, genero, director, pais, clasificacion, años)
+"""
   elif opcion==2:
-    funciones.modificarPelicula(codigos,nombres,genero,director,pais,clasificacion,años)
+    modificarPelicula(codigos,nombres,genero,director,pais,clasificacion,años)
   elif opcion==3:
-    funciones.bajaPelicula(codigos,nombres,genero,director,pais,clasificacion,años)
+    bajaPelicula(codigos,nombres,genero,director,pais,clasificacion,años)
   elif opcion==4:
-    funciones.listadoGeneral(codigos,nombres,genero,director,pais,clasificacion,años)
+    listadoGeneral(codigos,nombres,genero,director,pais,clasificacion,años)
+"""
 
 main()
