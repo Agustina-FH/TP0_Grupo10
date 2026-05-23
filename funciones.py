@@ -233,6 +233,10 @@ def baja_pelicula(codigos, titulos, generos, directores, paises, años, clasific
     print("Volviendo al menu principal..")
     
         
-
-
+#OPCION 4
+def listado_general(codigos, titulos, generos, directores, paises, años, clasificaciones):
+    for posicion in range(len(codigos)):
+        print(codigos[posicion],"|",titulos[posicion],"|",generos[posicion],"|",directores[posicion],"|",paises[posicion],"|",años[posicion],"|",clasificaciones[posicion])
+    
+    print("Volviendo al menu principal..")
     

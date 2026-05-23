@@ -24,7 +24,12 @@ def main():
     if opcion == 3:
       baja_pelicula(codigos, titulos, generos, directores, paises, años, clasificaciones)
 
+    if opcion == 4:
+      listado_general(codigos, titulos, generos, directores, paises, años, clasificaciones)
+
     opciones_menu()
     opcion=opcion_seleccionada(1,5)    
+  
+  print("Saliendo..")
     
 main()
