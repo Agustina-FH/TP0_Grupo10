@@ -12,7 +12,7 @@ def main():
   clasificaciones=[]
 
   opciones_menu()
-  """Permite seleccionar entre las opciones del menu. Autor/a: Fernandez Haiser Agustina"""
+  """Permite seleccionar entre las opciones del menu. Autor/a: Fernandez Haisner Agustina"""
   opcion=opcion_seleccionada(1,5)
   while opcion != 5:
     clasif_validas = ["ATP", "APTO13", "APTO16", "APTO18"]
