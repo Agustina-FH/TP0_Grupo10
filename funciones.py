@@ -1,6 +1,7 @@
 #FUNCIONES MENU
 
 def opciones_menu():
+    """Muestra las opciones del menu. Autor/a: Fernandez Haiser Agustina"""
     print("1: Alta de pelicula")
     print("2: Modificacion de pelicula")
     print("3: Baja de pelicula")
@@ -9,6 +10,7 @@ def opciones_menu():
 
 
 def opcion_seleccionada(primeraOP, ultimaOP):
+    """Permite seleccionar opciones dentro de un rango introducido. Autor/a: Fernandez Haiser Agustina"""
     op = int(input("Ingrese la accion que desea llevar acabo: "))
 
     while op < primeraOP or op > ultimaOP:
@@ -22,6 +24,7 @@ def opcion_seleccionada(primeraOP, ultimaOP):
 #FUNCIONES AUX
 
 def hay_numeros(string):
+    """Revisa si en un string se escribieron numeros. Autor/a: Fernandez Haiser Agustina"""
     numeros = "123456789"
     hay = False
     letra = 0
@@ -32,11 +35,13 @@ def hay_numeros(string):
     return hay
 
 def buscar_posicion(lista, elemento):
+    """Busca la posición de un elemento en una lista. Autor/a: Fernandez Haiser Agustina"""
     for posicion in range(len(lista)):
         if lista[posicion] == elemento:
             return posicion
 
 def datos_pelicula(codigos, titulos, generos, directores, paises, años, clasificaciones, posicion):
+    """Agrega los datos de una pelicula a una lista y devuelve la lista. Autor/a: Fernandez Haiser Agustina"""
     datos_pelicula = []
 
     datos_pelicula.append(codigos[posicion])
@@ -54,6 +59,7 @@ def datos_pelicula(codigos, titulos, generos, directores, paises, años, clasifi
 #OPCION 1
 
 def alta_pelicula(codigos, titulos, generos, directores, paises, años, clasificaciones, clasif_validas):
+    """Permite agregar peliculas con sus datos a las respectivas listas. Autor/a: Fernandez Haiser Agustina"""
     continuar = True
     while continuar:
         vacio = ""
@@ -122,11 +128,13 @@ def alta_pelicula(codigos, titulos, generos, directores, paises, años, clasific
 
 #OPCION 2
 def sub_menu_modf(datos_peli):
+    """Permite ver los datos de la pelicula en forma de indice para seleccionar el dato a cambiar. Autor/a: Fernandez Haiser Agustina"""
     for posicion in range(1,len(datos_peli)):
         print(posicion,":",datos_peli[posicion])
 
 
 def modificar_pelicula(codigos, titulos, generos, directores, paises, años, clasificaciones, clasif_validas):
+    """Permite modificar el dato seleccionado de la pelicula. Autor/a: Martín Saffioti"""
     continuar = True
     while continuar:
         codigo = int(input("Ingrese el codigo de la pelicula que desea modificar: "))
@@ -195,6 +203,7 @@ def modificar_pelicula(codigos, titulos, generos, directores, paises, años, cla
 
 #OPCION 3
 def baja_pelicula(codigos, titulos, generos, directores, paises, años, clasificaciones):
+    """Permite dar de baja una pelicula con doble confirmación. Autor/a: Fernandez Haiser Agustina"""
     continuar = True
     while continuar:
         codigo = int(input("Ingrese el codigo de la pelicula que desea eliminar: "))
@@ -235,8 +244,10 @@ def baja_pelicula(codigos, titulos, generos, directores, paises, años, clasific
         
 #OPCION 4
 def listado_general(codigos, titulos, generos, directores, paises, años, clasificaciones):
+    """Permite ver el listado de todas las peliculas. Autor/a: Fernandez Haiser Agustina"""
     for posicion in range(len(codigos)):
         print(codigos[posicion],"|",titulos[posicion],"|",generos[posicion],"|",directores[posicion],"|",paises[posicion],"|",años[posicion],"|",clasificaciones[posicion])
     
     print("Volviendo al menu principal..")
     
+#Documentación: Martín Saffioti
