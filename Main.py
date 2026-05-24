@@ -2,6 +2,7 @@ from funciones import *
 
 
 def main():
+  """Genera las listas de los datos. Autor/a: Martín Saffioti"""
   codigos=[]
   titulos=[]
   generos=[]
@@ -11,6 +12,7 @@ def main():
   clasificaciones=[]
 
   opciones_menu()
+  """Permite seleccionar entre las opciones del menu. Autor/a: Fernandez Haiser Agustina"""
   opcion=opcion_seleccionada(1,5)
   while opcion != 5:
     clasif_validas = ["ATP", "APTO13", "APTO16", "APTO18"]
@@ -33,3 +35,5 @@ def main():
   print("Saliendo..")
     
 main()
+
+#Documentación: Martín Saffioti
