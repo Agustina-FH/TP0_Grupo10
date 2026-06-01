@@ -251,3 +251,22 @@ def listado_general(codigos, titulos, generos, directores, paises, años, clasif
     print("Volviendo al menu principal..")
     
 #Documentación: Martín Saffioti
+
+def buscarCodigo (codigos, titulos, generos, directores, paises, años, clasificaciones,,dato):
+    codigo=-1
+    i=0
+    while i<len(lista) and lista!=dato:
+        i=i+1
+    codigo=lista[i]
+    
+    if codigos==-1:
+        print("La pelicula no existe")
+    else:
+        print("La pelicula existe")
+        print(f"Codigo:{codigos[i]}")
+        print(f"Titulo:{titulos[i]}")
+        print(f"Genero:{generos[i]}")
+        print(f"Director/a:{directores[i]}")
+        print(f"Pais:{paises[i]}")
+        print(f"Año:{años[i]}")
+        print(f"Clasificiacion:{clasificaciones[i]}")
