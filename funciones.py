@@ -6,7 +6,8 @@ def opciones_menu():
     print("2: Modificacion de pelicula")
     print("3: Baja de pelicula")
     print("4: Listado general")
-    print("5: Salir")
+    print("5: Buscar por codigo")
+    print("6: Salir")
 
 
 def opcion_seleccionada(primeraOP, ultimaOP):
@@ -252,7 +253,8 @@ def listado_general(codigos, titulos, generos, directores, paises, años, clasif
     
 #Documentación: Martín Saffioti
 
-def buscarCodigo (codigos, titulos, generos, directores, paises, años, clasificaciones,,dato):
+def buscarCodigo (codigos, titulos, generos, directores, paises, años, clasificaciones,dato):
+    """Se le ingresa un codigo como dato, busca secuencialmente donde esta y da todos los datos de la pelicula. Autor: Saffioti Martín"""
     codigo=-1
     i=0
     while i<len(lista) and lista!=dato:
