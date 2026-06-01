@@ -272,3 +272,15 @@ def buscarCodigo (codigos, titulos, generos, directores, paises, años, clasific
         print(f"Pais:{paises[i]}")
         print(f"Año:{años[i]}")
         print(f"Clasificiacion:{clasificaciones[i]}")
+
+def ordemiento_año(lista_año, lista_titulo):
+    """ordena las peliculas en base a sus años de lanzamiento y los muestra (metodo utilizado: seleccion). Autor: Perez Lautaro Agustin"""
+    for i in range(0, len(lista_año)-1):
+        for j in range(i+1, len(lista_año)):
+            if lista_año[i] > lista_año[j]:
+                aux = lista_año[i]
+                lista_año[i] = lista_año[j]
+                lista_año[j] = aux
+    print("Peliculas ordenadas por año de publicacion: ")
+    for i in range(len(lista_año)):
+        print(f"{lista_año[i]} - {lista_titulo[i]}")
