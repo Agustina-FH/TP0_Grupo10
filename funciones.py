@@ -292,6 +292,9 @@ def ordenamiento_año(lista_año, lista_titulo):
                 aux = lista_año[i]
                 lista_año[i] = lista_año[j]
                 lista_año[j] = aux
+                aux_titulo = lista_titulo[i]
+                lista_titulo[i] = lista_titulo[j]
+                lista_titulo[j] = aux_titulo
     print("Peliculas ordenadas por año de publicacion: ")
     for i in range(len(lista_año)):
         print(f"{lista_año[i]} - {lista_titulo[i]}")
