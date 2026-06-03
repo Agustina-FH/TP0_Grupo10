@@ -7,7 +7,8 @@ def opciones_menu():
     print("3: Baja de pelicula")
     print("4: Listado general")
     print("5: Buscar por codigo")
-    print("6: Salir")
+    print("6: Listado ordednado por año de publicacion")
+    print("7: Salir")
 
 
 def opcion_seleccionada(primeraOP, ultimaOP):
@@ -283,7 +284,7 @@ def buscarCodigo (codigos, titulos, generos, directores, paises, años, clasific
         print(f"Año:{años[i]}")
         print(f"Clasificiacion:{clasificaciones[i]}")
 
-def ordemiento_año(lista_año, lista_titulo):
+def ordenamiento_año(lista_año, lista_titulo):
     """ordena las peliculas en base a sus años de lanzamiento y los muestra (metodo utilizado: seleccion). Autor: Perez Lautaro Agustin"""
     for i in range(0, len(lista_año)-1):
         for j in range(i+1, len(lista_año)):

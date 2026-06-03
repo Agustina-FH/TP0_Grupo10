@@ -13,8 +13,8 @@ def main():
 
   opciones_menu()
   """Permite seleccionar entre las opciones del menu. Autor/a: Fernandez Haisner Agustina"""
-  opcion=opcion_seleccionada(1,6)
-  while opcion != 6:
+  opcion=opcion_seleccionada(1,7)
+  while opcion != 7:
     clasif_validas = ["ATP", "APTO13", "APTO16", "APTO18"]
 
     if opcion == 1:
@@ -32,6 +32,9 @@ def main():
     if opcion==5:
       dato_solicitado=int(input("Ingrese el codigo que desea buscar: "))
       buscarCodigo(codigos, titulos, generos, directores, paises, años, clasificaciones, dato_solicitado)
+    
+    if opcion==6:
+      ordenamiento_año(años, titulos)
 
     opciones_menu()
     opcion=opcion_seleccionada(1,6)    
