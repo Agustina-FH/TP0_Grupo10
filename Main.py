@@ -30,8 +30,8 @@ def main():
       listado_general(codigos, titulos, generos, directores, paises, años, clasificaciones)
 
     if opcion==5:
-      dato=int(input("Ingrese el codigo que desea buscar"))
-      buscarCodigo(codigos, titulos, generos, directores, paises, años, clasificaciones, dato)
+      dato_solicitado=int(input("Ingrese el codigo que desea buscar: "))
+      buscarCodigo(codigos, titulos, generos, directores, paises, años, clasificaciones, dato_solicitado)
 
     opciones_menu()
     opcion=opcion_seleccionada(1,6)    

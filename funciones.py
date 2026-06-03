@@ -253,15 +253,25 @@ def listado_general(codigos, titulos, generos, directores, paises, años, clasif
     
 #Documentación: Martín Saffioti
 
-def buscarCodigo (codigos, titulos, generos, directores, paises, años, clasificaciones,dato):
+def buscarCodigo (codigos, titulos, generos, directores, paises, años, clasificaciones,dato_solicitado):
     """Se le ingresa un codigo como dato, busca secuencialmente donde esta y da todos los datos de la pelicula. Autor: Saffioti Martín"""
+    """
     codigo=-1
     i=0
     while i<len(lista) and lista!=dato:
         i=i+1
     codigo=lista[i]
+    """
+    i=0
+    existe = False
+    while i < len(codigos) and not existe:
+        if codigos[i] == dato_solicitado:
+            existe = True
+        else:
+            i += 1
+
     
-    if codigos==-1:
+    if not existe:
         print("La pelicula no existe")
     else:
         print("La pelicula existe")
