@@ -7,7 +7,7 @@ def opciones_menu():
     print("3: Baja de pelicula")
     print("4: Listado general")
     print("5: Buscar por codigo")
-    print("6: Listado ordednado por año de publicacion")
+    print("6: Ordenar listado por año de publicacion")
     print("7: Salir")
 
 
