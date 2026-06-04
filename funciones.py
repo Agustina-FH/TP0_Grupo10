@@ -161,35 +161,35 @@ def modificar_pelicula(codigos, titulos, generos, directores, paises, años, cla
             genero=input("Ingrese el nuevo genero:")
             while hay_numeros(genero):
                 print("El genero no puede contener numeros")
-                genero=input("Ingrese el nuevo genero:")
+                genero=input("Ingrese el nuevo genero: ")
             generos[posicion]=genero
 
         if opcion == 3:
-            director=input("Ingrese el nuevo director:")
+            director=input("Ingrese el nuevo director: ")
             while hay_numeros(director):
                 print("El director no puede contener numeros")
-                director=input("Ingrese el nuevo director:")
+                director=input("Ingrese el nuevo director: ")
             directores[posicion]=director
 
         if opcion == 4:
-            pais=input("Ingrese el nuevo pais:")
+            pais=input("Ingrese el nuevo pais: ")
             while hay_numeros(pais):
                 print("El pais no puede contener numeros")
-                pais=input("Ingrese el nuevo pais:")
+                pais=input("Ingrese el nuevo pais: ")
             paises[posicion]=pais
 
         if opcion == 5:
-            año=int(input("Ingrese el nuevo año:"))
+            año=int(input("Ingrese el nuevo año: "))
             while año<1900: 
                 print("El año debe ser mayor a 1900")
-                año=int(input("Ingrese el nuevo año:"))
+                año=int(input("Ingrese el nuevo año: "))
             años[posicion]=año
 
         if opcion == 6:
-            clasificacion=input("Ingrese la nueva clasificacion:")
+            clasificacion=input("Ingrese la nueva clasificacion: ")
             while clasificacion not in clasif_validas:
                 print("La clasificacion no es valida")
-                clasificacion=input("Ingrese la nueva clasificacion:")
+                clasificacion=input("Ingrese la nueva clasificacion: ")
             clasificaciones[posicion]=clasificacion
         
         print("Modificacion exitosa.")
@@ -271,7 +271,6 @@ def buscarCodigo (codigos, titulos, generos, directores, paises, años, clasific
         else:
             i += 1
 
-    
     if not existe:
         print("La pelicula no existe")
     else:
