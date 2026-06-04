@@ -257,6 +257,7 @@ def listado_general(codigos, titulos, generos, directores, paises, años, clasif
 #OPCION 5
 def buscarCodigo (codigos, titulos, generos, directores, paises, años, clasificaciones,dato_solicitado):
     """Se le ingresa un codigo como dato, busca secuencialmente donde esta y da todos los datos de la pelicula. Autor: Saffioti Martín"""
+    buscar= True
     """
     codigo=-1
     i=0
@@ -264,25 +265,29 @@ def buscarCodigo (codigos, titulos, generos, directores, paises, años, clasific
         i=i+1
     codigo=lista[i]
     """
-    i=0
-    existe = False
-    while i < len(codigos) and not existe:
-        if codigos[i] == dato_solicitado:
-            existe = True
+    while buscar:
+        i=0
+        existe = False
+        while i < len(codigos) and not existe:
+            if codigos[i] == dato_solicitado:
+                existe = True
+            else:
+                i += 1
+    
+        if not existe:
+            print("La pelicula no existe")
         else:
-            i += 1
-
-    if not existe:
-        print("La pelicula no existe")
-    else:
-        print("La pelicula existe")
-        print(f"Codigo:{codigos[i]}")
-        print(f"Titulo:{titulos[i]}")
-        print(f"Genero:{generos[i]}")
-        print(f"Director/a:{directores[i]}")
-        print(f"Pais:{paises[i]}")
-        print(f"Año:{años[i]}")
-        print(f"Clasificiacion:{clasificaciones[i]}")
+            print("La pelicula existe")
+            print(f"Codigo:{codigos[i]}")
+            print(f"Titulo:{titulos[i]}")
+            print(f"Genero:{generos[i]}")
+            print(f"Director/a:{directores[i]}")
+            print(f"Pais:{paises[i]}")
+            print(f"Año:{años[i]}")
+            print(f"Clasificiacion:{clasificaciones[i]}")
+        seguir=input("¿Desea seguir buscando? (Si/No)").upper()
+        if seguir==NO:
+            buscar= False
 
 
 #OPCION 6
