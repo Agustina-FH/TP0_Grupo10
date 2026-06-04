@@ -8,7 +8,8 @@ def opciones_menu():
     print("4: Listado general")
     print("5: Buscar por codigo")
     print("6: Ordenar listado por año de publicacion")
-    print("7: Salir")
+    print("7: Listar peliculas por genero")
+    print("8: Salir")
 
 
 def opcion_seleccionada(primeraOP, ultimaOP):
@@ -36,11 +37,13 @@ def hay_numeros(string):
         letra += 1
     return hay
 
+
 def buscar_posicion(lista, elemento):
     """Busca la posición de un elemento en una lista. Autor/a: Fernandez Haisner Agustina"""
     for posicion in range(len(lista)):
         if lista[posicion] == elemento:
             return posicion
+
 
 def datos_pelicula(codigos, titulos, generos, directores, paises, años, clasificaciones, posicion):
     """Agrega los datos de una pelicula a una lista y devuelve la lista. Autor/a: Fernandez Haisner Agustina"""
@@ -57,9 +60,7 @@ def datos_pelicula(codigos, titulos, generos, directores, paises, años, clasifi
     return datos_pelicula
 
 
-
 #OPCION 1
-
 def alta_pelicula(codigos, titulos, generos, directores, paises, años, clasificaciones, clasif_validas):
     """Permite agregar peliculas con sus datos a las respectivas listas. Autor/a: Fernandez Haisner Agustina"""
     continuar = True
@@ -194,7 +195,7 @@ def modificar_pelicula(codigos, titulos, generos, directores, paises, años, cla
         
         print("Modificacion exitosa.")
         op = input("¿Desea volver al menu principal? (S/N): ").upper()
-        while op != "S" and opcion != "N":
+        while op != "S" and op != "N":
             print("Respuesta invalida")
             op = input("¿Desea volver al menu principal? (S/N): ").upper()
         if op == "S":
@@ -209,33 +210,33 @@ def baja_pelicula(codigos, titulos, generos, directores, paises, años, clasific
     continuar = True
     while continuar:
         codigo = int(input("Ingrese el codigo de la pelicula que desea eliminar: "))
-        while codigo not in codigos:
+        if codigo not in codigos:
             print("El codigo ingresado no se encuentra en los registros.")
-            codigo = int(input("Ingrese el codigo de la pelicula que desea eliminar: "))
+            
+        else:
+            posicion = buscar_posicion(codigos, codigo)
+            pelicula = datos_pelicula(codigos, titulos, generos, directores, paises, años, clasificaciones, posicion)
 
-        posicion = buscar_posicion(codigos, codigo)
-        pelicula = datos_pelicula(codigos, titulos, generos, directores, paises, años, clasificaciones, posicion)
+            for dato in pelicula:
+                print(dato)
 
-        for dato in pelicula:
-            print(dato)
-
-        opcion = input("¿Desea dar de baja esta pelicula? (S/N): ").upper()
-        while opcion != "S" and opcion != "N":
-            print("Respuesta invalida")
             opcion = input("¿Desea dar de baja esta pelicula? (S/N): ").upper()
+            while opcion != "S" and opcion != "N":
+                print("Respuesta invalida")
+                opcion = input("¿Desea dar de baja esta pelicula? (S/N): ").upper()
 
-        if opcion == "S":
-            codigos.pop(posicion)
-            titulos.pop(posicion)
-            generos.pop(posicion)
-            directores.pop(posicion)
-            paises.pop(posicion)
-            años.pop(posicion)
-            clasificaciones.pop(posicion)
-            print("Eliminacion exitosa.")
+            if opcion == "S":
+                codigos.pop(posicion)
+                titulos.pop(posicion)
+                generos.pop(posicion)
+                directores.pop(posicion)
+                paises.pop(posicion)
+                años.pop(posicion)
+                clasificaciones.pop(posicion)
+                print("Eliminacion exitosa.")
 
         op = input("¿Desea volver al menu principal? (S/N): ").upper()
-        while opcion != "S" and opcion != "N":
+        while op != "S" and op != "N":
             print("Respuesta invalida")
             op = input("¿Desea volver al menu principal? (S/N): ").upper()
         if op == "S":
@@ -251,9 +252,9 @@ def listado_general(codigos, titulos, generos, directores, paises, años, clasif
         print(codigos[posicion],"|",titulos[posicion],"|",generos[posicion],"|",directores[posicion],"|",paises[posicion],"|",años[posicion],"|",clasificaciones[posicion])
     
     print("Volviendo al menu principal..")
-    
-#Documentación: Martín Saffioti
 
+
+#OPCION 5
 def buscarCodigo (codigos, titulos, generos, directores, paises, años, clasificaciones,dato_solicitado):
     """Se le ingresa un codigo como dato, busca secuencialmente donde esta y da todos los datos de la pelicula. Autor: Saffioti Martín"""
     """
@@ -283,8 +284,10 @@ def buscarCodigo (codigos, titulos, generos, directores, paises, años, clasific
         print(f"Año:{años[i]}")
         print(f"Clasificiacion:{clasificaciones[i]}")
 
+
+#OPCION 6
 def ordenamiento_año(lista_año, lista_titulo):
-    """ordena las peliculas en base a sus años de lanzamiento y los muestra (metodo utilizado: seleccion). Autor: Perez Lautaro Agustin"""
+    """Ordena las peliculas en base a sus años de lanzamiento y los muestra (metodo utilizado: seleccion). Autor: Perez Lautaro Agustin"""
     for i in range(0, len(lista_año)-1):
         for j in range(i+1, len(lista_año)):
             if lista_año[i] > lista_año[j]:
@@ -297,3 +300,29 @@ def ordenamiento_año(lista_año, lista_titulo):
     print("Peliculas ordenadas por año de publicacion: ")
     for i in range(len(lista_año)):
         print(f"{lista_año[i]} - {lista_titulo[i]}")
+
+
+#OPCION 7
+def pelis_genero(titulos, generos):
+    """Permite mostrar las peliculas de un genero seleccionado. Autor/a: Fernandez Haisner Agustina"""
+    continuar = True
+    while continuar:
+        genero = input("Ingrese el genero que desea buscar: ")
+        if genero not in generos:
+            print("No se encontraron peliculas de ese genero.")
+        else:
+            print(f"Peliculas del genero {genero}: ")
+            for i in range(len(generos)):
+                if generos[i] == genero:
+                    print(titulos[i])
+
+        op = input("¿Desea volver al menu principal? (S/N): ").upper()
+        while op != "S" and op != "N":
+            print("Respuesta invalida")
+            op = input("¿Desea volver al menu principal? (S/N): ").upper()
+        if op == "S":
+            continuar = False
+
+    print("Volviendo al menu principal..")
+
+#Documentación: Martín Saffioti

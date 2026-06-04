@@ -13,8 +13,8 @@ def main():
 
   opciones_menu()
   """Permite seleccionar entre las opciones del menu. Autor/a: Fernandez Haisner Agustina"""
-  opcion=opcion_seleccionada(1,7)
-  while opcion != 7:
+  opcion=opcion_seleccionada(1,8)
+  while opcion != 8:
     clasif_validas = ["ATP", "APTO13", "APTO16", "APTO18"]
 
     if opcion == 1:
@@ -35,9 +35,12 @@ def main():
     
     if opcion==6:
       ordenamiento_año(años, titulos)
+    
+    if opcion==7:
+      pelis_genero(titulos, generos)
 
     opciones_menu()
-    opcion=opcion_seleccionada(1,6)    
+    opcion=opcion_seleccionada(1,8)    
   
   print("Saliendo..")
     
