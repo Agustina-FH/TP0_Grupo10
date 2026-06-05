@@ -257,15 +257,8 @@ def listado_general(codigos, titulos, generos, directores, paises, años, clasif
 #OPCION 5
 def buscarCodigo (codigos, titulos, generos, directores, paises, años, clasificaciones,dato_solicitado):
     """Se le ingresa un codigo como dato, busca secuencialmente donde esta y da todos los datos de la pelicula. Autor: Saffioti Martín"""
-    buscar= True
-    """
-    codigo=-1
-    i=0
-    while i<len(lista) and lista!=dato:
-        i=i+1
-    codigo=lista[i]
-    """
-    while buscar:
+    continuar = True
+    while continuar:
         i=0
         existe = False
         while i < len(codigos) and not existe:
@@ -285,9 +278,13 @@ def buscarCodigo (codigos, titulos, generos, directores, paises, años, clasific
             print(f"Pais:{paises[i]}")
             print(f"Año:{años[i]}")
             print(f"Clasificiacion:{clasificaciones[i]}")
-        seguir=input("¿Desea seguir buscando? (Si/No)").upper()
-        if seguir==NO:
-            buscar= False
+
+        seguir = input("¿Desea volver al menu principal? (S/N): ").upper()
+        while seguir != "S" and seguir != "N":
+            print("Respuesta invalida")
+            seguir = input("¿Desea volver al menu principal? (S/N): ").upper()
+        if seguir == "S":
+            continuar = False
 
 
 #OPCION 6
@@ -309,7 +306,7 @@ def ordenamiento_año(lista_año, lista_titulo):
 
 #OPCION 7
 def pelis_genero(titulos, generos):
-    """Permite mostrar las peliculas de un genero seleccionado. Autor/a: Fernandez Haisner Agustina"""
+    """Permite mostrar las peliculas de un genero seleccionado. Autora: Fernandez Haisner Agustina""" 
     continuar = True
     while continuar:
         genero = input("Ingrese el genero que desea buscar: ")
