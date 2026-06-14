@@ -285,6 +285,8 @@ def buscarCodigo (codigos, titulos, generos, directores, paises, años, clasific
             seguir = input("¿Desea volver al menu principal? (S/N): ").upper()
         if seguir == "S":
             continuar = False
+            
+    print("Volviendo al menu principal..")
 
 
 #OPCION 6
