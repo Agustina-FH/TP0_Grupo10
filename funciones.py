@@ -28,11 +28,11 @@ def opcion_seleccionada(primeraOP, ultimaOP):
 
 def hay_numeros(string):
     """Revisa si en un string se escribieron numeros. Autor/a: Fernandez Haisner Agustina"""
-    numeros = "123456789"
+    numeros = ["1","2","3","4","5","6","7","8","9"]
     hay = False
     letra = 0
     while not hay and letra < len(string):
-        if string[letra] in numeros:
+        if buscar_posicion(numeros,string[letra]) != -1:
             hay = True
         letra += 1
     return hay
@@ -40,9 +40,13 @@ def hay_numeros(string):
 
 def buscar_posicion(lista, elemento):
     """Busca la posición de un elemento en una lista. Autor/a: Fernandez Haisner Agustina"""
-    for posicion in range(len(lista)):
-        if lista[posicion] == elemento:
-            return posicion
+    posicion = -1
+    pos = 0
+    while posicion == -1 and pos < len(lista):
+        if lista[pos] == elemento:
+            posicion = pos
+        pos += 1
+    return posicion
 
 
 def datos_pelicula(codigos, titulos, generos, directores, paises, años, clasificaciones, posicion):
@@ -68,7 +72,7 @@ def alta_pelicula(codigos, titulos, generos, directores, paises, años, clasific
         vacio = ""
 
         codigo = int(input("Ingrese el codigo de la pelicula que desea agregar: "))
-        while codigo in codigos or codigo < 0:
+        while buscar_posicion(codigos,codigo) != -1 or codigo < 0:
             if codigo < 0:
                 print("Invalido: no puede ser negativo.")
             else:
@@ -113,7 +117,7 @@ def alta_pelicula(codigos, titulos, generos, directores, paises, años, clasific
         años.append(año)
 
         clasificacion = input("Ingrese la clasificacion por edad de la pelicula: ")
-        while clasificacion not in clasif_validas:
+        while buscar_posicion(clasif_validas, clasificacion) == -1:
             print("Invalido: no se encuentra entre las clasificaciones validas.")
             clasificacion = input("Ingrese la clasificacion por edad de la pelicula: ")
         clasificaciones.append(clasificacion)
@@ -141,7 +145,7 @@ def modificar_pelicula(codigos, titulos, generos, directores, paises, años, cla
     continuar = True
     while continuar:
         codigo = int(input("Ingrese el codigo de la pelicula que desea modificar: "))
-        while codigo not in codigos:
+        while buscar_posicion(codigos,codigo) == -1:
             print("El codigo ingresado no se encuentra en los registros.")
             codigo = int(input("Ingrese el codigo de la pelicula que desea modificar: "))
         
@@ -188,7 +192,7 @@ def modificar_pelicula(codigos, titulos, generos, directores, paises, años, cla
 
         if opcion == 6:
             clasificacion=input("Ingrese la nueva clasificacion: ")
-            while clasificacion not in clasif_validas:
+            while buscar_posicion(clasif_validas, clasificacion) == -1:
                 print("La clasificacion no es valida")
                 clasificacion=input("Ingrese la nueva clasificacion: ")
             clasificaciones[posicion]=clasificacion
@@ -210,7 +214,7 @@ def baja_pelicula(codigos, titulos, generos, directores, paises, años, clasific
     continuar = True
     while continuar:
         codigo = int(input("Ingrese el codigo de la pelicula que desea eliminar: "))
-        if codigo not in codigos:
+        if buscar_posicion(codigos,codigo) == -1:
             print("El codigo ingresado no se encuentra en los registros.")
             
         else:
@@ -285,7 +289,7 @@ def buscarCodigo (codigos, titulos, generos, directores, paises, años, clasific
             seguir = input("¿Desea volver al menu principal? (S/N): ").upper()
         if seguir == "S":
             continuar = False
-            
+
     print("Volviendo al menu principal..")
 
 
@@ -312,7 +316,7 @@ def pelis_genero(titulos, generos):
     continuar = True
     while continuar:
         genero = input("Ingrese el genero que desea buscar: ")
-        if genero not in generos:
+        if buscar_posicion(generos,genero) == -1:
             print("No se encontraron peliculas de ese genero.")
         else:
             print(f"Peliculas del genero {genero}: ")
