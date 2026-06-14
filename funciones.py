@@ -98,7 +98,7 @@ def alta_pelicula(codigos, titulos, generos, directores, paises, años, clasific
                 print("Invalido: no puede ser vacio.")
             else:
                 print("Invalido: no se permiten numeros")
-            director = int(input("Ingrese el director de la pelicula: "))
+            director = input("Ingrese el director de la pelicula: ")
         directores.append(director)
 
         pais = input("Ingrese el pais de origen de la pelicula: ")
@@ -107,7 +107,7 @@ def alta_pelicula(codigos, titulos, generos, directores, paises, años, clasific
                 print("Invalido: no puede ser vacio.")
             else:
                 print("Invalido: no se permiten numeros")
-            pais = int(input("Ingrese el pais de origen de la pelicula: "))
+            pais = input("Ingrese el pais de origen de la pelicula: ")
         paises.append(pais)
 
         año = int(input("Ingrese el año de publicacion: "))
@@ -259,10 +259,11 @@ def listado_general(codigos, titulos, generos, directores, paises, años, clasif
 
 
 #OPCION 5
-def buscarCodigo (codigos, titulos, generos, directores, paises, años, clasificaciones,dato_solicitado):
+def buscarCodigo (codigos, titulos, generos, directores, paises, años, clasificaciones):
     """Se le ingresa un codigo como dato, busca secuencialmente donde esta y da todos los datos de la pelicula. Autor: Saffioti Martín"""
     continuar = True
     while continuar:
+        dato_solicitado=int(input("Ingrese el codigo que desea buscar: "))
         i=0
         existe = False
         while i < len(codigos) and not existe:

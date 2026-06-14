@@ -30,8 +30,7 @@ def main():
       listado_general(codigos, titulos, generos, directores, paises, años, clasificaciones)
 
     if opcion==5:
-      dato_solicitado=int(input("Ingrese el codigo que desea buscar: "))
-      buscarCodigo(codigos, titulos, generos, directores, paises, años, clasificaciones, dato_solicitado)
+      buscarCodigo(codigos, titulos, generos, directores, paises, años, clasificaciones)
     
     if opcion==6:
       ordenamiento_año(años, titulos)
