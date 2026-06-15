@@ -9,7 +9,8 @@ def opciones_menu():
     print("5: Buscar por codigo")
     print("6: Ordenar listado por año de publicacion")
     print("7: Listar peliculas por genero")
-    print("8: Salir")
+    print("8: Reporte Matricial")
+    print("9: Salir")
 
 
 def opcion_seleccionada(primeraOP, ultimaOP):
@@ -334,4 +335,32 @@ def pelis_genero(titulos, generos):
 
     print("Volviendo al menu principal..")
 
+#OPCION 8
+def reporteGeneroClasificacion(generos, clasificaciones, clasif_validas):
+    """Muestra un reporte matricial por genero y clasificación de cuantas peliculas hay por cada combinación posible. Autor: Saffioti Martín"""
+    matriz=[["generos","ATP","APTO13","APTO16","APTO18"]]
+    generos_unicos=[]
+    for g in range(len(generos)):
+        existe=False
+        for i in range(len(generos_unicos)):
+            if generos[g]==generos_unicos[i]:
+                existe=True
+        if existe==False:
+            generos_unicos.append(generos[g])
+    for f in range(len(generos_unicos)):
+        matriz.append([])
+        genero=generos_unicos[f]
+        matriz[f+1].append(genero)
+    
+    for f in range(1,len(matriz)):
+        for c in range (1,len(matriz[0])):
+            cont=0
+            for i in range(len(generos)):
+                if generos[i]==matriz[f][0] and clasificaciones[i]==matriz[0][c]:
+                    cont+=1
+            matriz[f].append(cont)
+    for f in range(len(matriz)):
+        for c in range(len(matriz[0])):
+            print("%-12s" % matriz[f][c], end="")
+        print()
 #Documentación: Martín Saffioti
