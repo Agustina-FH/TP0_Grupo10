@@ -336,7 +336,7 @@ def pelis_genero(titulos, generos):
     print("Volviendo al menu principal..")
 
 #OPCION 8
-def reporteGeneroClasificacion(codigos, titulos, generos, directores, paises, años, clasificaciones, clasif_validas):
+def reporteGeneroClasificacion(generos, clasificaciones, clasif_validas):
     """Muestra un reporte matricial por genero y clasificación de cuantas peliculas hay por cada combinación posible. Autor: Saffioti Martín"""
     for f in range(len(generos)):
     matriz.append([])
