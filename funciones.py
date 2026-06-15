@@ -9,7 +9,8 @@ def opciones_menu():
     print("5: Buscar por codigo")
     print("6: Ordenar listado por año de publicacion")
     print("7: Listar peliculas por genero")
-    print("8: Salir")
+    print("8: Reporte Matricial")
+    print("9: Salir")
 
 
 def opcion_seleccionada(primeraOP, ultimaOP):
@@ -333,5 +334,22 @@ def pelis_genero(titulos, generos):
             continuar = False
 
     print("Volviendo al menu principal..")
+
+#OPCION 8
+def reporteGeneroClasificacion(codigos, titulos, generos, directores, paises, años, clasificaciones, clasif_validas):
+    """Muestra un reporte matricial por genero y clasificación de cuantas peliculas hay por cada combinación posible. Autor: Saffioti Martín"""
+    for f in range(len(generos)):
+    matriz.append([])
+    genero=generos[f]
+    matriz[f+1].append(genero)
+    
+for f in range(1,len(matriz)):
+    for c in range (1,len(matriz[0])):
+        cont=0
+        for i in range(1,len(matriz[0])):
+            if generos[f-1]==matriz[f] and clasificaciones[f]==matriz[f-1]:
+                cont+=1
+            matriz[c].append(cont)
+print (matriz)
 
 #Documentación: Martín Saffioti
