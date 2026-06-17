@@ -131,6 +131,7 @@ def alta_pelicula(codigos, titulos, generos, directores, paises, años, clasific
             op = input("¿Desea volver al menu principal? (S/N): ").upper()
         if op == "S":
             continuar = False
+        print()
 
     print("Volviendo al menu principal..")
 
@@ -150,6 +151,7 @@ def modificar_pelicula(codigos, titulos, generos, directores, paises, años, cla
         while buscar_posicion(codigos,codigo) == -1:
             print("El codigo ingresado no se encuentra en los registros.")
             codigo = int(input("Ingrese el codigo de la pelicula que desea modificar: "))
+        print()
         
         posicion = buscar_posicion(codigos, codigo)
         pelicula = datos_pelicula(codigos, titulos, generos, directores, paises, años, clasificaciones, posicion)
@@ -165,7 +167,7 @@ def modificar_pelicula(codigos, titulos, generos, directores, paises, años, cla
             titulos[posicion]=titulo
 
         if opcion == 2:
-            genero=input("Ingrese el nuevo genero:")
+            genero=input("Ingrese el nuevo genero: ")
             while hay_numeros(genero):
                 print("El genero no puede contener numeros")
                 genero=input("Ingrese el nuevo genero: ")
@@ -206,6 +208,7 @@ def modificar_pelicula(codigos, titulos, generos, directores, paises, años, cla
             op = input("¿Desea volver al menu principal? (S/N): ").upper()
         if op == "S":
             continuar = False
+        print()
 
     print("Volviendo al menu principal..")
 
@@ -247,6 +250,7 @@ def baja_pelicula(codigos, titulos, generos, directores, paises, años, clasific
             op = input("¿Desea volver al menu principal? (S/N): ").upper()
         if op == "S":
             continuar = False
+        print()
 
     print("Volviendo al menu principal..")
     
@@ -256,7 +260,7 @@ def listado_general(codigos, titulos, generos, directores, paises, años, clasif
     """Permite ver el listado de todas las peliculas. Autor/a: Fernandez Haisner Agustina"""
     for posicion in range(len(codigos)):
         print(codigos[posicion],"|",titulos[posicion],"|",generos[posicion],"|",directores[posicion],"|",paises[posicion],"|",años[posicion],"|",clasificaciones[posicion])
-    
+    print()
     print("Volviendo al menu principal..")
 
 
@@ -292,6 +296,7 @@ def buscarCodigo (codigos, titulos, generos, directores, paises, años, clasific
             seguir = input("¿Desea volver al menu principal? (S/N): ").upper()
         if seguir == "S":
             continuar = False
+        print()
 
     print("Volviendo al menu principal..")
 
@@ -333,6 +338,7 @@ def pelis_genero(titulos, generos):
             op = input("¿Desea volver al menu principal? (S/N): ").upper()
         if op == "S":
             continuar = False
+        print()
 
     print("Volviendo al menu principal..")
 
@@ -370,13 +376,11 @@ def reporte_estadistico(titulos, generos, paises, años, clasificaciones, clasif
     """Muestra indicadores estadísticos generales del catálogo usando recorridos, acumuladores y contadores. Autor: Perez Lautaro Agustin"""
     if len(titulos) != 0:
 
-        print("REPORTE ESTADISTICO")
-        total = 0
-        i = 0
-        while i < len(titulos):
-            total += 1
-            i += 1
+        print("REPORTE ESTADISTICO GENERAL")
+        print()
+        total = len(titulos)
         print(f"Cantidad total de peliculas: {total}")
+        print()
 
         año_min = años[0]
         titulo_min = titulos[0]
@@ -394,9 +398,11 @@ def reporte_estadistico(titulos, generos, paises, años, clasificaciones, clasif
         print("Pelicula mas antigua:")
         print(f" Titulo: {titulo_min}")
         print(f"Año: {año_min}")
+        print()
         print("Pelicula mas reciente:")
         print(f"Titulo: {titulo_max}")
         print(f"Año: {año_max}")
+        print()
 
         print("Cantidad por clasificacion:")
         c = 0
@@ -409,6 +415,7 @@ def reporte_estadistico(titulos, generos, paises, años, clasificaciones, clasif
                 i += 1
             print(f" {clasif_validas[c]}:{cont}")
             c += 1
+        print()
 
         generos_unicos = []
         i = 0
@@ -439,6 +446,7 @@ def reporte_estadistico(titulos, generos, paises, años, clasificaciones, clasif
             g += 1
         print("Genero mas frecuente:")
         print(f"{genero_max}")
+        print()
 
         paises_unicos = []
         i = 0
@@ -469,6 +477,7 @@ def reporte_estadistico(titulos, generos, paises, años, clasificaciones, clasif
             p += 1
         print("Pais con mayor cantidad de peliculas:")
         print(f"{pais_max}")
+        print()
 
         acumulador = 0
         i = 0
