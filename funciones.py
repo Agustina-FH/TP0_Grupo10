@@ -260,8 +260,6 @@ def listado_general(codigos, titulos, generos, directores, paises, años, clasif
     """Permite ver el listado de todas las peliculas. Autor/a: Fernandez Haisner Agustina"""
     for posicion in range(len(codigos)):
         print(codigos[posicion],"|",titulos[posicion],"|",generos[posicion],"|",directores[posicion],"|",paises[posicion],"|",años[posicion],"|",clasificaciones[posicion])
-    print()
-    print("Volviendo al menu principal..")
 
 
 #OPCION 5
