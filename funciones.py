@@ -10,7 +10,8 @@ def opciones_menu():
     print("6: Ordenar listado por año de publicacion")
     print("7: Listar peliculas por genero")
     print("8: Reporte Matricial")
-    print("9: Salir")
+    print("9: Reporte Estadistico General")
+    print("10: Salir")
 
 
 def opcion_seleccionada(primeraOP, ultimaOP):
@@ -338,7 +339,7 @@ def pelis_genero(titulos, generos):
 #OPCION 8
 def reporteGeneroClasificacion(generos, clasificaciones, clasif_validas):
     """Muestra un reporte matricial por genero y clasificación de cuantas peliculas hay por cada combinación posible. Autor: Saffioti Martín"""
-    matriz=[["generos","ATP","APTO13","APTO16","APTO18"]]
+    matriz=[["GENEROS"]+clasif_validas]
     generos_unicos=[]
     for g in range(len(generos)):
         existe=False
@@ -364,120 +365,122 @@ def reporteGeneroClasificacion(generos, clasificaciones, clasif_validas):
             print("%-12s" % matriz[f][c], end="")
         print()
 
-
+#OPCION 9
 def reporte_estadistico(titulos, generos, paises, años, clasificaciones, clasif_validas):
     """Muestra indicadores estadísticos generales del catálogo usando recorridos, acumuladores y contadores. Autor: Perez Lautaro Agustin"""
-    if len(titulos) == 0:
-        print("No hay peliculas registradas")
-        return
+    if len(titulos) != 0:
 
-    print("REPORTE ESTADISTICO")
-    total = 0
-    i = 0
-    while i < len(titulos):
-        total += 1
-        i += 1
-    print(f"Cantidad total de peliculas: {total}")
-
-    año_min = años[0]
-    titulo_min = titulos[0]
-    año_max = años[0]
-    titulo_max = titulos[0]
-    i = 1
-    while i < len(años):
-        if años[i] < año_min:
-            año_min = años[i]
-            titulo_min = titulos[i]
-        if años[i] > año_max:
-            año_max = años[i]
-            titulo_max = titulos[i]
-        i += 1
-    print("Pelicula mas antigua:")
-    print(f" Titulo: {titulo_min}")
-    print(f"Año: {año_min}")
-    print("Pelicula mas reciente:")
-    print(f"Titulo: {titulo_max}")
-    print(f"Año: {año_max}")
-
-    print("Cantidad por clasificacion:")
-    c = 0
-    while c < len(clasif_validas):
-        cont = 0
+        print("REPORTE ESTADISTICO")
+        total = 0
         i = 0
-        while i < len(clasificaciones):
-            if clasificaciones[i] == clasif_validas[c]:
-                cont += 1
+        while i < len(titulos):
+            total += 1
             i += 1
-        print(f" {clasif_validas[c]}:{cont}")
-        c += 1
+        print(f"Cantidad total de peliculas: {total}")
 
-    generos_unicos = []
-    i = 0
-    while i < len(generos):
-        existe = False
-        j = 0
-        while j < len(generos_unicos):
-            if generos[i] == generos_unicos[j]:
-                existe = True
-            j += 1
-        if existe==False:
-            generos_unicos.append(generos[i])
-        i += 1
+        año_min = años[0]
+        titulo_min = titulos[0]
+        año_max = años[0]
+        titulo_max = titulos[0]
+        i = 1
+        while i < len(años):
+            if años[i] < año_min:
+                año_min = años[i]
+                titulo_min = titulos[i]
+            if años[i] > año_max:
+                año_max = años[i]
+                titulo_max = titulos[i]
+            i += 1
+        print("Pelicula mas antigua:")
+        print(f" Titulo: {titulo_min}")
+        print(f"Año: {año_min}")
+        print("Pelicula mas reciente:")
+        print(f"Titulo: {titulo_max}")
+        print(f"Año: {año_max}")
 
-    genero_max = generos_unicos[0]
-    cont_max = 0
-    g = 0
-    while g < len(generos_unicos):
-        cont = 0
+        print("Cantidad por clasificacion:")
+        c = 0
+        while c < len(clasif_validas):
+            cont = 0
+            i = 0
+            while i < len(clasificaciones):
+                if clasificaciones[i] == clasif_validas[c]:
+                    cont += 1
+                i += 1
+            print(f" {clasif_validas[c]}:{cont}")
+            c += 1
+
+        generos_unicos = []
         i = 0
         while i < len(generos):
-            if generos[i] == generos_unicos[g]:
-                cont += 1
+            existe = False
+            j = 0
+            while j < len(generos_unicos):
+                if generos[i] == generos_unicos[j]:
+                    existe = True
+                j += 1
+            if existe==False:
+                generos_unicos.append(generos[i])
             i += 1
-        if cont > cont_max:
-            cont_max = cont
-            genero_max = generos_unicos[g]
-        g += 1
-    print("Genero mas frecuente:")
-    print(f"{genero_max}")
 
-    paises_unicos = []
-    i = 0
-    while i < len(paises):
-        existe = False
-        j = 0
-        while j < len(paises_unicos):
-            if paises[i] == paises_unicos[j]:
-                existe = True
-            j += 1
-        if not existe:
-            paises_unicos.append(paises[i])
-        i += 1
+        genero_max = generos_unicos[0]
+        cont_max = 0
+        g = 0
+        while g < len(generos_unicos):
+            cont = 0
+            i = 0
+            while i < len(generos):
+                if generos[i] == generos_unicos[g]:
+                    cont += 1
+                i += 1
+            if cont > cont_max:
+                cont_max = cont
+                genero_max = generos_unicos[g]
+            g += 1
+        print("Genero mas frecuente:")
+        print(f"{genero_max}")
 
-    pais_max = paises_unicos[0]
-    cont_max = 0
-    p = 0
-    while p < len(paises_unicos):
-        cont = 0
+        paises_unicos = []
         i = 0
         while i < len(paises):
-            if paises[i] == paises_unicos[p]:
-                cont += 1
+            existe = False
+            j = 0
+            while j < len(paises_unicos):
+                if paises[i] == paises_unicos[j]:
+                    existe = True
+                j += 1
+            if not existe:
+                paises_unicos.append(paises[i])
             i += 1
-        if cont > cont_max:
-            cont_max = cont
-            pais_max = paises_unicos[p]
-        p += 1
-    print("Pais con mayor cantidad de peliculas:")
-    print(f"{pais_max}")
 
-    acumulador = 0
-    i = 0
-    while i < len(años):
-        acumulador += años[i]
-        i += 1
-    promedio = acumulador // total
-    print("Promedio de años de publicacion:")
-    print(f"{promedio}")
+        pais_max = paises_unicos[0]
+        cont_max = 0
+        p = 0
+        while p < len(paises_unicos):
+            cont = 0
+            i = 0
+            while i < len(paises):
+                if paises[i] == paises_unicos[p]:
+                    cont += 1
+                i += 1
+            if cont > cont_max:
+                cont_max = cont
+                pais_max = paises_unicos[p]
+            p += 1
+        print("Pais con mayor cantidad de peliculas:")
+        print(f"{pais_max}")
+
+        acumulador = 0
+        i = 0
+        while i < len(años):
+            acumulador += años[i]
+            i += 1
+        promedio = acumulador // total
+        print("Promedio de años de publicacion:")
+        print(f"{promedio}")
+    
+    else:
+        print("No hay peliculas registradas")
+    
 
 #Documentación: Martín Saffioti
