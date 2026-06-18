@@ -9,9 +9,10 @@ def opciones_menu():
     print("5: Buscar por codigo")
     print("6: Ordenar listado por año de publicacion")
     print("7: Listar peliculas por genero")
-    print("8: Reporte Matricial")
+    print("8: Reporte Matricial por Genero y Clasificaciones")
     print("9: Reporte Estadistico General")
-    print("10: Salir")
+    print("10: Reporte Matricial por Año y País")
+    print("11: Salir")
 
 
 def opcion_seleccionada(primeraOP, ultimaOP):
