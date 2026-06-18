@@ -488,6 +488,55 @@ def reporte_estadistico(titulos, generos, paises, años, clasificaciones, clasif
     
     else:
         print("No hay peliculas registradas")
-    
+        
+#Opcion 10
+def matrizAñoPais (codigos, titulos, generos, directores, paises, años, clasificaciones):
 
+    matriz=[["Codigo","Titulo","Genero","Director","Pais","Año","Clasificacion"]]
+    pais=input("Ingrese el pais de origen que desea (Recuerde que debe iniciar con mayuscula):")
+    while buscar_posicion(paises,pais)==-1:
+        print("Pais no valido")
+        pais=input("Ingrese el pais de origen que desea (Recuerde que debe iniciar con mayuscula):")
+    año1=int(input("Ingrese el año desde el cual quiere que sean las peliculas:"))
+    while año1<1900:
+        print("Año no valido")
+        año1=int(input("Ingrese el año desde el cual quiere que sean las peliculas:"))
+            
+    año2=int(input("Ingrese el año hasta el cual quiere que sean las peliculas:"))
+    while año2<año1:
+        print("El año no puede ser menor al primero")
+        año2=int(input("Ingrese el año hasta el cual quiere que sean las peliculas:"))
+    peliculas=[]
+    for i in range(len(paises)):
+        if paises[i]==pais:
+            peliculas.append(i)
+    validas=[]
+    for i in range(len(peliculas)):
+        if años[peliculas[i]]<año2 and años[peliculas[i]]>año1:
+            validas.append(peliculas[i])
+            
+    for i in range(len(validas)):
+        matriz.append([])
+            
+    for f in range(1,(len(matriz))-1):
+        matriz[f].append(codigos[validas[f]])
+        matriz[f].append(titulos[validas[f]])
+        matriz[f].append(generos[validas[f]])
+        matriz[f].append(directores[validas[f]])
+        matriz[f].append(paises[validas[f]])
+        matriz[f].append(años[validas[f]])
+        matriz[f].append(clasificaciones[validas[f]])
+            
+    if len(matriz)!=1:
+        print("País seleccionado:",pais)
+        print("Año desde:",año1)
+        print("Año hasta:",año2)
+        for f in range((len(matriz))-1):
+            for c in range(len(matriz[0])):
+                print("%-12s" % matriz[f][c], end="")
+            print()
+        print("Total encontrados:",len(matriz)-1)
+        
+    else:
+        print("No se encontraron registros con las condiciones dadas")
 #Documentación: Martín Saffioti
