@@ -346,13 +346,9 @@ def reporteGeneroClasificacion(generos, clasificaciones, clasif_validas):
     """Muestra un reporte matricial por genero y clasificación de cuantas peliculas hay por cada combinación posible. Autor: Saffioti Martín"""
     matriz=[["GENEROS"]+clasif_validas]
     generos_unicos=[]
-    for g in range(len(generos)):
-        existe=False
-        for i in range(len(generos_unicos)):
-            if generos[g]==generos_unicos[i]:
-                existe=True
-        if existe==False:
-            generos_unicos.append(generos[g])
+    ffor g in range(len(generos)):
+        if buscar_posicion(generos_unicos,generos[g])==-1:
+            generos_unicos.appenn(generos[g])
     for f in range(len(generos_unicos)):
         matriz.append([])
         genero=generos_unicos[f]
@@ -492,6 +488,7 @@ def reporte_estadistico(titulos, generos, paises, años, clasificaciones, clasif
         
 #Opcion 10
 def matrizAñoPais (codigos, titulos, generos, directores, paises, años, clasificaciones):
+    """Pide un pais y 2 años para devolver una matriz con los datos de las peliculas que cumplan con ser de ese pais y estar entre los años dados. Autor: Saffioti Martín"""
 
     matriz=[["Codigo","Titulo","Genero","Director","Pais","Año","Clasificacion"]]
     pais=input("Ingrese el pais de origen que desea (Recuerde que debe iniciar con mayuscula):")
