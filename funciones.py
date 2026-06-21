@@ -301,20 +301,43 @@ def buscarCodigo (codigos, titulos, generos, directores, paises, años, clasific
 
 
 #OPCION 6
-def ordenamiento_año(lista_año, lista_titulo):
+def ordenamiento_año(codigos, titulos, generos, directores, paises, años, clasificaciones):
     """Ordena las peliculas en base a sus años de lanzamiento y los muestra (metodo utilizado: seleccion). Autor: Perez Lautaro Agustin"""
-    for i in range(0, len(lista_año)-1):
-        for j in range(i+1, len(lista_año)):
-            if lista_año[i] > lista_año[j]:
-                aux = lista_año[i]
-                lista_año[i] = lista_año[j]
-                lista_año[j] = aux
-                aux_titulo = lista_titulo[i]
-                lista_titulo[i] = lista_titulo[j]
-                lista_titulo[j] = aux_titulo
+    for i in range(0, len(años)-1):
+        for j in range(i+1, len(años)):
+            if años[i] > años[j]:
+                aux_año = años[i]
+                años[i] = años[j]
+                años[j] = aux_año
+                
+                aux_titulo = titulos[i]
+                titulos[i] = titulos[j]
+                titulos[j] = aux_titulo
+                
+                aux_codigo = codigos[i]
+                codigos[i] = codigos[j]
+                codigos[j] = aux_codigo
+            
+                aux_genero = generos[i]
+                generos[i] = generos[j]
+                generos[j] = aux_genero
+                
+                aux_director = directores[i]
+                directores[i] = directores[j]
+                directores[j] = aux_director
+                
+                aux_pais = paises[i]
+                paises[i] = paises[j]
+                paises[j] = aux_pais
+                
+                aux_clasif = clasificaciones[i]
+                clasificaciones[i] = clasificaciones[j]
+                clasificaciones[j] = aux_clasif
     print("Peliculas ordenadas por año de publicacion: ")
-    for i in range(len(lista_año)):
-        print(f"{lista_año[i]} - {lista_titulo[i]}")
+    for i in range(len(años)):
+        print(f"{años[i]} - {titulos[i]}")
+
+
 
 
 #OPCION 7
